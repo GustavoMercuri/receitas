@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 class ReceitasAdapter(
     private val lista: ArrayList<Receita>,
     private val onItemLongClick: (Receita) -> Unit,
-    private val onNameClick: (Receita) -> Unit   // <-- clique no nome
+    private val onNameClick: (Receita) -> Unit  
 ) : RecyclerView.Adapter<ReceitasAdapter.ViewHolder>() {
 
     init { setHasStableIds(true) }
@@ -26,9 +26,9 @@ class ReceitasAdapter(
         val r = lista[position]
         holder.tvNome.text = r.nome
 
-        holder.tvNome.setOnClickListener { onNameClick(r) }  // clique no NOME abre detalhe
+        holder.tvNome.setOnClickListener { onNameClick(r) } 
         holder.itemView.setOnLongClickListener {
-            onItemLongClick(r)                               // long-press remove
+            onItemLongClick(r)                               
             true
         }
     }
