@@ -35,13 +35,13 @@
 
         <EditText
             android:id="@+id/etModo"
-            android:hint="Modo de preparo"
-            android:inputType="textMultiLine"
-            android:minLines="4"
-            android:gravity="top"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"/>
+            android:layout_marginTop="12dp"
+            android:gravity="top"
+            android:hint="Modo de preparo"
+            android:inputType="textMultiLine"
+            android:minLines="4" />
 
         <Button
             android:id="@+id/btnSalvar"
