@@ -16,6 +16,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        Dao.inicializar()
+
         val recycler = findViewById<RecyclerView>(R.id.recyclerView)
         recycler.layoutManager = LinearLayoutManager(this)
 
@@ -44,18 +46,18 @@ class MainActivity : AppCompatActivity() {
         recycler.adapter = adapter
 
         val btnAdd: Button = findViewById(R.id.btnAdd)
-        val btnReset: Button = findViewById(R.id.btnReset)
+        val btnLimpar: Button = findViewById(R.id.btnLimpar)
 
         btnAdd.setOnClickListener {
             startActivity(Intent(this, AddReceitaActivity::class.java))
         }
 
-        btnReset.setOnClickListener {
+        btnLimpar.setOnClickListener {
             AlertDialog.Builder(this)
                 .setTitle("Limpar tudo")
                 .setMessage("Tem certeza que deseja apagar TODAS as receitas?")
                 .setPositiveButton("Limpar") { _, _ ->
-                    Dao.reset()
+                    Dao.limpar()
                     adapter.notifyDataSetChanged()
                     Toast.makeText(this, "Lista apagada!", Toast.LENGTH_SHORT).show()
                 }
@@ -69,3 +71,4 @@ class MainActivity : AppCompatActivity() {
         adapter.notifyDataSetChanged()
     }
 }
+
